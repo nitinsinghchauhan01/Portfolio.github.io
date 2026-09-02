@@ -4,6 +4,7 @@ import { ArrowRight, Mail } from 'lucide-react';
 import { Github } from './icons/Github';
 import { Linkedin } from './icons/Linkedin';
 import { usePortfolio } from '../context/PortfolioContext';
+import { getAssetPath } from '../utils/assetPath';
 
 const Hero = () => {
   const { data } = usePortfolio();
@@ -110,7 +111,7 @@ const Hero = () => {
               {/* Image Container */}
               <div className="absolute inset-8 rounded-full overflow-hidden border-2 border-primary/50 shadow-[0_0_30px_rgba(99,102,241,0.2)] bg-surface-lighter z-10">
                 <img 
-                  src="/profile.jpg" 
+                  src={getAssetPath('/profile.jpg')} 
                   alt={data.personal.name} 
                   className="w-full h-full object-cover object-top filter contrast-125"
                   onError={(e) => {

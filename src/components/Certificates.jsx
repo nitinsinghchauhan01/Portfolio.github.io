@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Award } from 'lucide-react';
 import { usePortfolio } from '../context/PortfolioContext';
+import { getAssetPath } from '../utils/assetPath';
 
 const CertificateCard = ({ cert }) => {
   return (
@@ -17,7 +18,7 @@ const CertificateCard = ({ cert }) => {
       
       <div className="relative h-48 overflow-hidden bg-surface-lighter p-4 flex items-center justify-center">
         <img 
-          src={cert.image} 
+          src={getAssetPath(cert.image)} 
           alt={cert.title} 
           className="max-h-full object-contain transition-transform duration-500 group-hover:scale-105"
           onError={(e) => {
@@ -40,7 +41,7 @@ const CertificateCard = ({ cert }) => {
           <span className="text-sm font-medium text-gray-500">{cert.date}</span>
           
           <a 
-            href={cert.image}
+            href={getAssetPath(cert.image)}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center text-sm font-medium text-primary hover:text-primary-hover transition-colors bg-primary/10 px-3 py-1.5 rounded-lg"

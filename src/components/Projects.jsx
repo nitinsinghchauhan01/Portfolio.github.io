@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
 import { Github } from './icons/Github';
 import { usePortfolio } from '../context/PortfolioContext';
+import { getAssetPath } from '../utils/assetPath';
 
 const ProjectCard = ({ project }) => {
   return (
@@ -16,7 +17,7 @@ const ProjectCard = ({ project }) => {
     >
       <div className="relative h-48 overflow-hidden bg-surface-lighter">
         <img 
-          src={project.image} 
+          src={getAssetPath(project.image)} 
           alt={project.title} 
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           onError={(e) => {
